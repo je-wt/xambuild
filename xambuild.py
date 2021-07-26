@@ -37,7 +37,7 @@ def projectDirDefault():
 
 def droidDirDefault(args):
         try:
-            projectDirEnv = os.environ.get('XAMBUILD_DROID_DIR') or os.path.realpath(glob.glob(args.projectDir + os.sep + "*.Droid")[0])
+            projectDirEnv = os.environ.get('XAMBUILD_DROID_DIR') or os.path.realpath(glob.glob(args.projectDir + os.sep + "*.Droid")[0]) or os.path.realpath(glob.glob(os.path.realpath(".") + os.sep + "*.Android")[0])
             return projectDirEnv
         except:
             print("Platform directory could not be found, exiting.")
